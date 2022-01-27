@@ -8,7 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: isbang/compose-action@v1.0.0
+            - run: docker-compose up -d
             - uses: actions/setup-java@v2
               with:
                   distribution: 'temurin'
