@@ -23,7 +23,10 @@ public class Launcher {
             RabbitTemplate rabbitTemplate = springContext.getBean(RabbitTemplate.class);
             rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
             for (Game game : games) {
-                rabbitTemplate.convertAndSend("", "game_info", game);
+                rabbitTemplate.convertAndSend("", "game_info", game, m -> {
+                    m.getMessageProperties().getHeaders().put("game_id", game.id);
+                    return m;
+                });
             }
         }
     }
