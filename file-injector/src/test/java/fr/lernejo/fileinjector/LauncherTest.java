@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class LauncherTest {
 
     @Test
-    void main_terminates_before_10_sec() {
+    void main_terminates_before_5_sec() {
         assertTimeoutPreemptively(
-            Duration.ofSeconds(10L),
+            Duration.ofSeconds(5L),
             () -> Launcher.main(new String[]{}));
     }
 }
