@@ -11,7 +11,7 @@ class LauncherTest {
     @Test
     void main() {
         assertTimeoutPreemptively(
-            Duration.ofSeconds(5L),
+            Duration.ofSeconds(10L),
             () -> Launcher.main(new String[]{}));
     }
 }
