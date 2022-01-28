@@ -27,9 +27,7 @@ class ElasticController {
         SearchRequest request = new SearchRequest().source(SearchSourceBuilder.searchSource().query(new QueryStringQueryBuilder(query)));
         SearchResponse response =  client.search(request, RequestOptions.DEFAULT);
         List<Object> result = new ArrayList();
-        for (SearchHit hit : response.getHits()){
-            result.add(hit.getSourceAsMap());
-        }
+        response.getHits().forEach(hit -> result.add(hit.getSourceAsMap()));
         return result;
     }
 
