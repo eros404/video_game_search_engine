@@ -12,7 +12,6 @@ import java.nio.file.Paths;
 
 @SpringBootApplication
 public class Launcher {
-
     public static void main(String[] args) throws IOException {
         if (args.length != 1) {
             System.out.println("You must provide 1 parameter.");
